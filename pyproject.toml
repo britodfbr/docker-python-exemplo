@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "docker-python-exemplo"
+version = "0.2.0"
+description = ""
+authors = ["Rafael Brito Gomes <rgomes@dnsfilter.com>"]
+
+[tool.poetry.dependencies]
+python = "^2.7"
+Flask = "^1.1.4"
+redis = "^3.5.3"
+toml = {extras = ["tomli"], version = "^0.10.2"}
+pathlib2 = {version = "^2.3.7", python="<3.6"}
+
+[tool.poetry.dev-dependencies]
+pytest = {version="4.6.11", python="<3.6"}
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
