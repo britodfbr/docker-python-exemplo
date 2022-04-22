@@ -1,16 +1,23 @@
-; EditorConfig helps developers define and maintain consistent
-; coding styles between different editors and IDEs.
+; .editorconfig file
+; EditorConfig is awesome: http://EditorConfig.org
 
-; For more visit http://editorconfig.org.
 root = true
 
-; Choose between lf or rf on "end_of_line" property
 [*]
-indent_style = space
-end_of_line = lf
 charset = utf-8
+end_of_line = lf
+indent_size = 4
+indent_style = space
+insert_final_newline = true
+max_line_length = 120
 trim_trailing_whitespace = true
+
+[*.{yml,yaml,js,ini,toml,json,kv}]
 indent_size = 2
 
 [*.py]
-indent_size = 4
+max_line_length = 79
+
+[Makefile]
+indent_size = 1
+indent_style = tab
