@@ -11,6 +11,6 @@ web:
     - HOST_REDIS=redis
 
 redis:
-  image: redis
+  image: redis:6.2.6-alpine
   volumes:
     - dados_redis:/data
