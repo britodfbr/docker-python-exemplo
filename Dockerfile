@@ -1,4 +1,5 @@
 FROM python:2.7-alpine
+LABEL maintainer="Britodfbr <contato@incolume.com.br>"
 #RUN apk update && apk --no-cache --update add build-base
 RUN apk update && apk add --virtual build-dependencies
 ADD . /code

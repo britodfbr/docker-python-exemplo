@@ -1,16 +1,38 @@
-web:
-  build: .
-  ports:
-    - "5000:5000"
-  volumes:
-    - .:/code
-  links:
-    - redis
-  environment:
-    - PORT_REDIS=6379
-    - HOST_REDIS=redis
+# Call example:
+# $ docker-compose up --build
+version: "3.8"
 
-redis:
-  image: redis:6.2.6-alpine
-  volumes:
-    - dados_redis:/data
+volumes:
+  dados_redis:
+
+networks:
+  inside:
+    external: false
+
+services:
+  web:
+    build: .
+    container_name: "${COMPOSE_PROJECT_NAME}"
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/code
+    links:
+      - redis
+    environment:
+      - PORT_REDIS=6379
+      - HOST_REDIS=redis
+    depends_on:
+      - redis
+    networks:
+      - inside
+    restart: always
+
+  redis:
+    image: redis:6.2.6-alpine
+    container_name: "redis_${COMPOSE_PROJECT_NAME}"
+    volumes:
+      - dados_redis:/data
+    networks:
+      - inside
+    restart: always
