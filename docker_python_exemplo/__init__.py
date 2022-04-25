@@ -4,9 +4,11 @@ Principal Module.
 Update metadata from version by semver
 """
 import toml
-try:
+import platform
+
+if platform.platform() < '3.6':
     from pathlib2 import Path
-except ImportError:
+else:
     from pathlib import Path
 
 

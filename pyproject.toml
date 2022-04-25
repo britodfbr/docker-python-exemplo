@@ -5,14 +5,21 @@ description = ""
 authors = ["Rafael Brito Gomes <rgomes@dnsfilter.com>"]
 
 [tool.poetry.dependencies]
-python = "^2.7"
-Flask = "^1.1.4"
-redis = "^3.5.3"
-toml = {extras = ["tomli"], version = "^0.10.2"}
-pathlib2 = {version = "^2.3.7", python="<3.6"}
+python = ">=2.7"
+#toml = {extras = ["tomli"], version = "^0.10.2"}
+Flask = [
+  {version="<=1.1.4", python='<=3.6'},
+#  {version="<=2.0.3", python='~3.7'},
+#  {version="^2.1.1", python='^3.8'},
+]
+#redis = "^3.5.3"
+pathlib2 = {version="2.3.7", python="~2.7"}
 
 [tool.poetry.dev-dependencies]
-pytest = {version="4.6.11", python="<3.6"}
+pytest = [
+  {version="4.6.11", python="~2.7"},
+#  {version="^7.1.2", python="^3.7"},
+]
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
